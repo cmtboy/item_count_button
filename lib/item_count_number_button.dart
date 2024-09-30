@@ -15,6 +15,7 @@ class ItemCount extends StatelessWidget {
     required this.maxValue,
     required this.onChanged,
     required this.decimalPlaces,
+    this.textPadding,
     this.color,
     this.textStyle,
     this.step = 1,
@@ -43,6 +44,8 @@ class ItemCount extends StatelessWidget {
 
   /// indicates the color of fab used for increment and decrement
   Color? color;
+
+  EdgeInsetsGeometry? textPadding;
 
   /// text syle
   TextStyle? textStyle;
@@ -95,7 +98,7 @@ class ItemCount extends StatelessWidget {
             ),
           ),
           Container(
-            padding: const EdgeInsets.all(4.0),
+            padding:textPadding?? EdgeInsets.all(4.0),
             child: Text(
                 '${num.parse((selectedValue).toStringAsFixed(decimalPlaces))}',
                 style: textStyle == null
